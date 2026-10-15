@@ -1,19 +1,74 @@
 <!DOCTYPE html>
+<!-- Every section divided for visibility
+QUICK OVERWIEV: 
+Main Menu
+Introduction
+Bedroom
+Game-container
+-->
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Dr. Ratio's Classroom</title>
-    <link rel="stylesheet" href="style.css"></head>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  
 <body>
   <section id="main-menu" class="game-container">
     <h1>Dr. Ratio's Classroom</h1>
-    <p>Ready for your first lesson?</p>
-    <button onclick="startGame()">Play</button>
+    <p>Esse est percipi.</p>
+    <button onclick="showScreen('Introduction')">Play</button>
     <button onclick="showOptions()">Options</button>
     <button onclick="showCredits()">Credits</button>
-  </section>  <main class="game-container">
-    <h1>Dr. Ratio's Classroom</h1>
+  </section>  
+
+  <section id="Introduction" hidden>
+    <p>What is your name?</p>
+    <input
+      type="text"
+      id="player-name"
+      maxlength="20"
+    >
+    <button onclick="showScreen('Bedroom-Introduction')">
+      Continue
+    </button>
+  </section>
+    
+  <section id="Bedroom-Introduction" hidden>
+    <p style="color: white; text-align:center;">
+      Ringgg...... Ring.....
+    </p>
+    <button onclick="showScreen('intro-two')">...</button>
+  </section>
+
+  <section id="intro-two" hidden>
+    <p class="narrator">
+      With a groan you smash your annoying alarm clock, silencing it indefinitely. Slowly, you open your eyes.
+      Familiar surroundings come into focus: your bedroom, bathes in bright sunlight.
+    </p>
+    <button onclick="showScreen('bedroom')">...</button>
+  </section>
+  
+  <section id="bedroom" hidden>
+    <div class="speech-bubble player">
+      Ugh... why is it so bright already....
+    </div>
+    <p class="narrator">
+      Wait.
+    </p>
+    <p class="narrator">
+      You look at your now broken clock. Not only are you having class with a teacher about whom
+      youve been warned multiple times, but also....
+    </p>
+    <div class="speech-bubble player">
+      CLASS ALREADY STARTED!!!!
+    </div>
+    <button onclick="showScreen('classroom')">RUN!! TO!! CLASS!!</button>
+  </section>
+    
+  
+  <main id="classroom" class="game-container" hidden>
     <p id="story">
       Breatlessly you open the door to the lecture hall only to be greeted by a scrutinizing gaze.
     </p>
@@ -23,6 +78,8 @@
       <button onclick="choose(3)">Fuck you</button>
     </div>
   </main>
+  
   <script src="game.js"></script>
+  
 </body>
 </html>
