@@ -44,7 +44,7 @@
 
         background:#F5CC27;
         color: white;
-        border: 1px solic #a77bcb;
+        border: 1px solid #a77bcb;
         border-radius: 8px;
 
         cursor: pointer;
@@ -53,9 +53,82 @@
 
         transition: background 0.2s, transform 0.2s;
       }
-        
-      </style>
-      
-  </head>
+      button:hover{
+        background: #F5CC27;
+        transform: translateY(-2px);
+      }
+      button:focus-visible{
+        outline: 2px solid #d7a9ff;
+        outline-offset: 3px;
+      }
+    @media (max-width: 480px){ 
+      body {
+        padding: 20px 12px;
+      }
+      .game-container {
+        padding: 18px;
+      }
+      h1 {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="game-container">
+    <h1>Dr. Ratio's Classroom</h1>
+    <p id="story">
+      Breatlessly you open the door to the lecture hall only to be greeted by a scrutinizing gaze.
+    </p>
+    <div id="choices">
+      <button onclick="choose(1)">Well hello there cutie</button>
+      <button onclick="choose(2)">uhh sorry doctor</button>
+      <button onclick="choose(3)">Fuck you</button>
+    </div>
+  </main>
+  <script>
+    function choose(option) {
+      const story = document.getElementById("story");
+      const choices = document.getElementById("choices");
+      if (option === 1) {
+        story.textContent =
+          "...If this is any indication of your academic performance i fear we are in for a rather dissapointing semester";
+        choices.innerHTML = `
+          <button onclick="choose(4)">Six sevennnn</button>
+
+          <button onclick="choose(5)">*Stay silent*</button>
+        `;
+      } else if (option === 2) {
+        story.textContent =
+          "See that it doesent happen again.";
+        choices.innerHTML = `
+          <button onclick="choose(4)">Six sevennnn</button>
+          <button onclick="choose(5)">*Stay silent*</button>
+        `;
+      } else if (option === 3){ 
+        story.textContent =
+          "And yet, somehowy I doubt you suspect you would struggle to complete even that task on time.";
+        choices.innerHTML = `
+        <button onclick="choose(4)">Six sevennnn</button>
+        <button onclick="choose(5)">*Stay silent*</button>
+        `;
+      } else if (option === 4) {
+        story.textContent =`
+          "*Throws chalk at you* FAIL. ZERO POINTS.";
+        choices.innerHTML = `
+          <button onclick="restartGame()">Play again</button>
+        `;
+      } else if (option===5){
+        story.textContent =`
+        "Good. Lets continue with the lesson.";
+        choices.innerHTML=`
+        <button onclick="restartGame()">Play again</button>
+        `;
+    }
+    }
+    function restartGame() {
+      location.reload();
+    }
+     </script>
 </body>
 </html>
