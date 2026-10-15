@@ -1,4 +1,14 @@
-<script>
+<script>   
+function startGame() {
+  document.getElementById("main-menu").hidden = true;
+  document.getElementById("classroom").hidden = false;
+}
+function showOptions() {
+  alert("Options coming soon!");
+}
+function showCredits() {
+  alert("Created by you!");
+}
     function choose(option) {
       const story = document.getElementById("story");
       const choices = document.getElementById("choices");
