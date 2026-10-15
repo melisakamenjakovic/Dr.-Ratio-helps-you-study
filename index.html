@@ -1,82 +1,74 @@
 <!DOCTYPE html>
+<!-- Every section divided for visibility
+QUICK OVERWIEV: 
+Main Menu
+Introduction
+Bedroom
+Game-container
+-->
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Dr. Ratio's Classroom</title>
-    <style>
-      body{
-        background-image: url("IMG_6015.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-
-        max-width:650px;
-        min-height:100vh;
-        margin: 0 auto;
-        padding: 40px 20px;
-        box-sizing: border-box;
-        line-height:1.8;
-      }
-      .game-container{
-        background:rgba(23,21,31,.88);
-        padding: 25px;
-        border-radius: 15px;
-        border: 1px solid rgba(215, 169, 255, 0.4);
-        box-shadow: 0 8px 30px rgba(0,0,0,0.4)
-      }
-      h1{
-        font-family: Arial, sans-serif;
-        color: #4E47A1;
-        text-align: center;
-        margin-top: 0;
-      }
-      #story{
-        font-size: 17px;
-        margin: 20px 0;
-        color: #F7EFED;      }
-      button{
-        display: block;
-        width: 100%;
-        margin: 12px 0;
-        padding: 14px;
-
-        background:#F5CC27;
-        color: white;
-        border: 1px solid #a77bcb;
-        border-radius: 8px;
-
-        cursor: pointer;
-        font-family: Arial, sans-serif;
-        font-size: 16px;
-
-        transition: background 0.2s, transform 0.2s;
-      }
-      button:hover{
-        background: #F5CC27;
-        transform: translateY(-2px);
-      }
-      button:focus-visible{
-        outline: 2px solid #d7a9ff;
-        outline-offset: 3px;
-      }
-    @media (max-width: 480px){ 
-      body {
-        padding: 20px 12px;
-      }
-      .game-container {
-        padding: 18px;
-      }
-      h1 {
-        font-size: 26px;
-      }
-    }
-  </style>
-</head>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  
 <body>
-  <main class="game-container">
+  <section id="main-menu" class="game-container">
     <h1>Dr. Ratio's Classroom</h1>
+    <p>Esse est percipi.</p>
+    <button onclick="showScreen('Introduction')">Play</button>
+    <button onclick="showOptions()">Options</button>
+    <button onclick="showCredits()">Credits</button>
+  </section>  
+
+  <section id="Introduction" hidden>
+    <p>What is your name?</p>
+    <input
+      type="text"
+      id="player-name"
+      maxlength="20"
+    >
+    <button onclick="showScreen('Bedroom-Introduction')">
+      Continue
+    </button>
+  </section>
+    
+  <section id="Bedroom-Introduction" hidden>
+    <p style="color: white; text-align:center;">
+      Ringgg...... Ring.....
+    </p>
+    <button onclick="showScreen('intro-two')">...</button>
+  </section>
+
+  <section id="intro-two" hidden>
+    <p class="narrator">
+      With a groan you smash your annoying alarm clock, silencing it indefinitely. Slowly, you open your eyes.
+      Familiar surroundings come into focus: your bedroom, bathes in bright sunlight.
+    </p>
+    <button onclick="showScreen('bedroom')">...</button>
+  </section>
+  
+  <section id="bedroom" hidden>
+    <div class="speech-bubble player">
+      Ugh... why is it so bright already....
+    </div>
+    <p class="narrator">
+      Wait.
+    </p>
+    <p class="narrator">
+      You look at your now broken clock. Not only are you having class with a teacher about whom
+      youve been warned multiple times, but also....
+    </p>
+    <div class="speech-bubble player">
+      CLASS ALREADY STARTED!!!!
+    </div>
+    <button onclick="showScreen('classroom')">RUN!! TO!! CLASS!!</button>
+  </section>
+    
+  
+  <main id="classroom" class="game-container" hidden>
     <p id="story">
       Breatlessly you open the door to the lecture hall only to be greeted by a scrutinizing gaze.
     </p>
@@ -86,47 +78,8 @@
       <button onclick="choose(3)">Fuck you</button>
     </div>
   </main>
-  <script>
-    function choose(option) {
-      const story = document.getElementById("story");
-      const choices = document.getElementById("choices");
-      if (option === 1) {
-        story.textContent =
-          "...If this is any indication of your academic performance i fear we are in for a rather dissapointing semester";
-        choices.innerHTML = `
-          <button onclick="choose(4)">Six sevennnn</button>
-
-          <button onclick="choose(5)">*Stay silent*</button>
-        `;
-      } else if (option === 2) {
-        story.textContent =
-          "See that it doesent happen again.";
-        choices.innerHTML = `
-          <button onclick="choose(4)">Six sevennnn</button>
-          <button onclick="choose(5)">*Stay silent*</button>
-        `;
-      } else if (option === 3){ 
-        story.textContent =
-          "And yet, somehowy I doubt you suspect you would struggle to complete even that task on time.";
-        choices.innerHTML = `
-        <button onclick="choose(4)">Six sevennnn</button>
-        <button onclick="choose(5)">*Stay silent*</button>
-        `;
-      } else if (option === 4) {
-        story.textContent ="*Throws chalk at you* FAIL. ZERO POINTS.";
-        choices.innerHTML = `
-          <button onclick="restartGame()">Play again</button>
-        `;
-      } else if (option===5){
-        story.textContent ="Good. Lets continue with the lesson.";
-        choices.innerHTML=`
-        <button onclick="restartGame()">Play again</button>
-        `;
-    }
-    }
-    function restartGame() {
-      location.reload();
-    }
-     </script>
+  
+  <script src="game.js"></script>
+  
 </body>
 </html>
