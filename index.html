@@ -35,7 +35,7 @@
       #story{
         font-size: 17px;
         margin: 20px 0;
-      }
+        color: #F7EFED;      }
       button{
         display: block;
         width: 100%;
@@ -113,14 +113,12 @@
         <button onclick="choose(5)">*Stay silent*</button>
         `;
       } else if (option === 4) {
-        story.textContent =`
-          "*Throws chalk at you* FAIL. ZERO POINTS.";
+        story.textContent ="*Throws chalk at you* FAIL. ZERO POINTS.";
         choices.innerHTML = `
           <button onclick="restartGame()">Play again</button>
         `;
       } else if (option===5){
-        story.textContent =`
-        "Good. Lets continue with the lesson.";
+        story.textContent ="Good. Lets continue with the lesson.";
         choices.innerHTML=`
         <button onclick="restartGame()">Play again</button>
         `;
