@@ -44,7 +44,7 @@
 
         background:#F5CC27;
         color: white;
-        border: 1px solic #a77bcb;
+        border: 1px solid #a77bcb;
         border-radius: 8px;
 
         cursor: pointer;
@@ -61,19 +61,7 @@
         outline: 2px solid #d7a9ff;
         outline-offset: 3px;
       }
-      button:hover {
-
-      background: #513c68;
-
-      transform: translateY(-2px);
-
-    }
-
-    button:focus-visible {
-      outline: 2px solid #d7a9ff;
-      outline-offset: 3px;
-    }
-    @media (max-width: 480px) 
+    @media (max-width: 480px){ 
       body {
         padding: 20px 12px;
       }
@@ -93,7 +81,7 @@
       Breatlessly you open the door to the lecture hall only to be greeted by a scrutinizing gaze.
     </p>
     <div id="choices">
-      <button onclick="choose(1)">Well hello ther cutie</button>
+      <button onclick="choose(1)">Well hello there cutie</button>
       <button onclick="choose(2)">uhh sorry doctor</button>
       <button onclick="choose(3)">Fuck you</button>
     </div>
@@ -115,7 +103,7 @@
           "See that it doesent happen again.";
         choices.innerHTML = `
           <button onclick="choose(4)">Six sevennnn</button>
-          <button onclick="choose(3)">*Stay silent*</button>
+          <button onclick="choose(5)">*Stay silent*</button>
         `;
       } else if (option === 3){ 
         story.textContent =
@@ -126,7 +114,7 @@
         `;
       } else if (option === 4) {
         story.textContent =`
-          "*Throws chalt at you* FAIL. ZERO POINTS.";
+          "*Throws chalk at you* FAIL. ZERO POINTS.";
         choices.innerHTML = `
           <button onclick="restartGame()">Play again</button>
         `;
@@ -137,9 +125,10 @@
         <button onclick="restartGame()">Play again</button>
         `;
     }
+    }
     function restartGame() {
       location.reload();
     }
-     </style>
+     </script>
 </body>
 </html>
